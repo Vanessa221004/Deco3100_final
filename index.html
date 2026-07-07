@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Tangerine:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-3.4.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <title>Vanessa.Ly_A2</title>
+</head>
+
+<body>
+    <!-- FULL SCREEN HERO SECTION WITH CLOUD MASCOT, HEADLINE, AND SCROLL PROMPT -->
+    <section class="stage">
+        <div class="stage-content">
+            <div class="cloud-wrap">
+                <img class="cloud-img" src="cloud.png" alt="Cloud mascot">
+            </div>
+            <h1 class="headline">the illusion of choice</h1>
+            <div class="stage-divider"></div>
+            <p class="scroll-sentence" id="scrollSentence">You were told you could choose.</p>
+        </div>
+    </section>
+
+    <!--  ← First text reveal to briefly give a hint of what this website is about -->
+    <section class="scroll-section">
+        <div class="text-box">
+            <p class="box-sentence">For centuries, the arts and STEM fields have been debated as competing contributions
+                to society.
+                But this comparison can obscure a more fundamental question: who gets equal access to both?</p>
+        </div>
+    </section>
+
+    <!-- Transition section, where the mascot will scroll down and the background changed to cream and the paragraph show -->
+    <section class="transition-section">
+        <div class="roman-numeral">I</div>
+        <div class="section-content">
+            <div class="cloud-placeholder"></div>
+            <div class="paragraph-right-align">
+                <p>
+                    <span class="dropcap">U</span>niversities across Australia publicly commit to diverse and equitable
+                    academic pathways. Yet the data tells a different story. Across the country, courses are being cut,
+                    majors discontinued,
+                    and arts programmes quietly scaled back, despite institutional promises to the contrary.
+                </p>
+            </div>
+        </div>
+
+        <div class="paragraph">
+            <p>Between 2016 and 2026, courses offered shifted dramatically, not gradually, but divergently. STEM disciplines (science, technology, engineering, and mathematics) expanded, while the arts (literature, music, visual art, design, history, philosophy, and the humanities) contracted. 
+                The gap between institutional promise and institutional practice has never been more visible, quantifiable, and striking. What follows reveals the gap between institutional promise and institutional practice.
+            </p>
+        </div>
+
+        <div class="section-divider"></div>
+    </section>
+
+    <!-- Decorative image divider to change background from cream to red -->
+    <div class="ink-transition">
+        <img src="transition-bg.png" alt="" class="ink-bg-img">
+        <span class="ink-title"><span class="ink-muted">an</span> <mark>investigation</mark> <span
+                class="ink-muted">into</span> <br><mark>institutional promises</mark> <br></span>
+    </div>
+
+    <!-- HORIZONTAL SCROLL SECTION -->
+    <section class="horizontal-section" id="horizontalSection">
+        <div class="horizontal-track" id="horizontalTrack">
+
+            <!-- SLIDE 1: UTS -->
+            <div class="h-slide uts-slide">
+                <div class="slide-body">
+                    <div class="slide-left">
+                        <div class="slide-img-wrap">
+                            <img src="uts.png" alt="University Of Technology Sydney Building" class="slide-img">
+                        </div>
+                        <div class="quote-box">
+                            <span class="quote-mark open">"</span>
+                            <p class="quote-text" id="quoteText-uts"></p>
+                            <span class="quote-mark close">"</span>
+                            <div class="quote-nav">
+                                <button class="quote-btn" data-target="uts" data-dir="-1">&#8249;</button>
+                                <span class="quote-counter" id="quoteCounter-uts">1/3</span>
+                                <button class="quote-btn" data-target="uts" data-dir="1">&#8250;</button>
+                            </div>
+                            <p class="quote-source" id="quoteSource-uts">source. University Of Technology Sydney 2023–2027 Strategy</p>
+                        </div>
+                    </div>
+                    <div class="slide-right">
+                        <div id="chart-uts" class="plotly-chart"></div>
+                        <p class="chart-source">source. University Of Technology Sydney 2016–2025 Handbooks</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: SCU -->
+            <div class="h-slide scu-slide">
+                <div class="slide-body">
+                    <div class="slide-left">
+                        <div class="slide-img-wrap">
+                            <img src="scu.png" alt="Southern Cross University Building" class="slide-img">
+                        </div>
+                        <div class="quote-box">
+                            <span class="quote-mark open">"</span>
+                            <p class="quote-text" id="quoteText-scu"></p>
+                            <span class="quote-mark close">"</span>
+                            <div class="quote-nav">
+                                <button class="quote-btn" data-target="scu" data-dir="-1">&#8249;</button>
+                                <span class="quote-counter" id="quoteCounter-scu">1/3</span>
+                                <button class="quote-btn" data-target="scu" data-dir="1">&#8250;</button>
+                            </div>
+                            <p class="quote-source" id="quoteSource-scu">source. Southern Cross University Strategy</p>
+                        </div>
+                    </div>
+                    <div class="slide-right">
+                        <div id="chart-scu" class="plotly-chart"></div>
+                        <p class="chart-source">source. Southern Cross University 2016–2025 handbooks</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Statement -->
+            <div class="h-slide statement-slide">
+                <div class="statement-body">
+                    <p class="statement-text">That's not all...</p>
+                </div>
+            </div>
+
+            <!-- SLIDE 4: Map Chart -->
+            <div class="h-slide map-slide">
+                <div class="slide-body map-slide-body">
+                    <div class="map-chart-col">
+                        <div class="map-summary-row" aria-label="Map summary">
+                            <div class="map-summary-card">
+                                <p class="map-summary-value" id="mapUniversityCount">--</p>
+                                <p class="map-summary-label">universities reduced arts courses</p>
+                            </div>
+                            <div class="map-summary-card">
+                                <p class="map-summary-value" id="mapCoursesTotal">--</p>
+                                <p class="map-summary-label">arts courses removed</p>
+                            </div>
+                        </div>
+                        <div id="mapChart" class="plotly-chart"></div>
+                    </div>
+
+                    <div class="map-insight-col">
+                        <div class="map-insight-box">
+                            <span class="quote-mark open">"</span>
+                            <p class="map-insight-text">Australia is not alone.</p>
+                            <span class="quote-mark close">"</span>
+
+                            <div class="map-insight-body">
+                                <p>These 31 universities represent only a small sample of a much larger global trend.
+                                    Together, they account for more than 1,500 arts courses that students can no longer
+                                    study.</p>
+
+                                <p>Each closure removes a space where literature, history, languages, design, music, and
+                                    culture are studied, preserved, and reimagined. The cumulative effect is not simply
+                                    fewer subjects.
+                                    It is a gradual narrowing of the knowledge, perspectives, and creative capacity
+                                    available to society.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- make the transition smoother from red background to cream -->
+    <div class="ink-transition ink-transition--flip">
+        <img src="transition-bg.png" alt="" class="ink-bg-img">
+    </div>
+
+    <!-- change to the new act, act II -->
+    <section class="transition-section">
+        <div class="roman-numeral">II</div>
+        <div class="paragraph">
+            <p>The course closures shown on the map do not happen in isolation. In Australia, they sit within a longer
+                history of policy changes that have gradually reshaped who can afford to pursue higher education.
+
+                From free university to $15,000 a year for an arts degree, Australia's higher education system has
+                shifted significantly across generations. As study costs and HECS debt continue to rise, they
+                increasingly influence not only where students study, but whether they choose arts at all.</p>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <div class="tl-wrapper">
+        <div class="tl-header">
+            <p class="sub">From public investment to market-driven education</p>
+            <h1>how did we get here?</h1>
+        </div>
+
+        <div class="timeline">
+            <!-- ══ ERA 1 ══ -->
+            <div class="era-label" style="position:relative;">
+                <span>Phase 1</span>
+            </div>
+
+            <div class="row">
+                <div class="left">
+                    <p class="card-title">Access barriers &amp; class inequality</p>
+                    <p class="card-body">University education was once a privilege for wealthy families,
+                        meaning access was determined by wealth rather than merit that reinforcing social
+                        inequality.<span class="card-cite">(Quiggin, 2025)</span></p>
+                </div>
+                <div class="year">1945</div>
+                <div class="empty-r"></div>
+            </div>
+
+            <div class="divider"></div>
+
+
+            <!-- ══ ERA 2 ══ -->
+            <div class="era-label" style="position:relative;">
+                <span>Phase 2</span>
+            </div>
+
+            <div class="row">
+                <div class="empty"></div>
+                <div class="year small year-range">
+                    <span>1950s</span>
+                    <span class="year-dash"></span>
+                    <span>1960s</span>
+                </div>
+                <div class="right">
+                    <p class="card-title">Post-War Growth in Australian Higher Education</p>
+                    <p class="card-body">After WWII, the federal government took over university funding to support
+                        reconstruction and workforce needs, nearly doubling enrolments and opening access to
+                        working-class students.
+                        <span class="card-cite">(Norton, 2025)</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="left">
+                    <p class="card-title"><span class="tooltip-wrap">Gough Whitlam's<span
+                                class="tooltip-box">Australia's 21st Prime Minister (1972–75), known for sweeping social
+                                reforms including free university education.</span></span> "It's Time" speech</p>
+                    <p class="card-quote">"We will abolish fees at universities and colleges ... We
+                        believe that a student's merit rather than a parent's wealth should decide who should benefit
+                        ..."<span class="card-cite">(Museum of
+                            Australian Democracy, 1972)</span></p>
+                </div>
+                <div class="year">1972</div>
+                <div class="empty-r"></div>
+            </div>
+
+            <div class="row">
+                <div class="empty"></div>
+                <div class="year small">January<br>1974</div>
+                <div class="right">
+                    <p class="card-title">Free university education introduced</p>
+                    <p class="card-body">The Whitlam Labor Government abolished all tuition fees. Universities were
+                        entirely government-funded,
+                        allowing first-generation students to attend without financial burden.</p>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="left">
+                    <p class="card-title">The high water mark</p>
+                    <p class="card-body">
+                        Nine years of universal free education saw enrolment double from 2 in 10 to 4 in 10 Australians.
+                        For many educators, this remains the pinnacle of educational access and equity.
+                        <span class="card-cite">(Williams, 2025)</span>
+                    </p>
+                </div>
+                <div class="year">1983</div>
+                <div class="empty-r"></div>
+            </div>
+
+            <div class="divider"></div>
+
+
+            <!-- ══ ERA 3 ══ -->
+            <div class="era-label" style="position:relative;">
+                <span>Phase 3</span>
+            </div>
+
+            <div class="row">
+                <div class="empty"></div>
+                <div class="year">1989</div>
+                <div class="right">
+                    <p class="card-title">The Dawkins Reforms</p>
+                    <p class="card-body"><span class="tooltip-wrap">John Dawkins<span class="tooltip-box">Australia's
+                                Minister for Employment, Education and Training (1987–91), architect of the sweeping
+                                1988 higher education reforms that created the modern university system.</span></span>
+                                introduced <span class="tooltip-wrap">HECS<span
+                                class="tooltip-box">Higher Education Contribution Scheme - a deferred student loan
+                                system where graduates repay fees through the tax system once earning above a
+                                threshold.</span></span> in 1989, replacing fully government-funded university education with a shared-cost model. Students were charged $1,800 per year, repayable through the tax system after reaching an income threshold.</p>
+                   <span class="card-cite">(Williams, 2025)</span>
+                </div>
+                <div class="empty-r"></div>
+            </div>
+
+            <div class="row">
+                <div class="empty"></div>
+                <div class="year">1997</div>
+                <div class="left">
+                    <p class="card-title"><span class="tooltip-wrap">Three-band system<span class="tooltip-box">Introduced in 1997, the three-band system charged different fees for different degrees based on expected future earnings. Students repaid these costs later through HECS.</span></span> introduced</p>
+                    <ul class="band-list">
+                        <li>Band 1: ~$3,300 (Arts, humanities, nursing, education)</li>
+                        <li>Band 2: ~$4,700 (Engineering, computing)</li>
+                        <li>Band 3: ~$5,500 (Law, medicine)</li>
+                    </ul>
+                    <p class="card-body" style="margin-top:0.5rem;">Government explicitly acknowledged "arts graduates
+                        earn less" and should be protected with lowest fees.<span class="card-cite">(Australia
+                            Government Study Assist, 2024)</span></p>
+                </div>
+                <div class="empty-r"></div>
+            </div>
+
+            <div class="row">
+                <div class="right">
+                    <p class="card-title">Fee growth and COVID-19 revenue losses</p>
+                    <p class="card-body">Farts degree fees had risen to $6,256 as universities became more dependent on international student income. 
+                        The COVID-19 border closures then exposed this reliance, triggering an estimated $7 billion revenue loss across the sector.</p>
+                </div>
+                <div class="year small year-range">
+                    <span>1998</span>
+                    <span class="year-dash"></span>
+                    <span>2020</span>
+                </div>
+                <div class="empty-r"></div>
+            </div>
+
+            <div class="row">
+                <div class="empty"></div>
+                <div class="year">2021</div>
+                <div class="left">
+                    <p class="card-title"> <span class="tooltip-wrap">Job Ready Graduates<span class="tooltip-box">The
+                                Job Ready Graduates scheme was introduced to encourage students to pursue degrees in
+                                fields with strong employment prospects.</span></span> announced</p>
+                    <p class="card-body">The Morrison Government cut STEM fees while raising humanities fees by
+                        ~113%, moving arts degrees from the lowest to the highest fee band, from
+                        $6,256 to $16,992, to steer students toward
+                        fields with stronger employment prospects.
+                    </p>
+                </div>
+                <div class="empty-r"></div>
+            </div>
+
+            <div class="row">
+                <div class="right">
+                    <p class="card-title">Universities respond with cuts</p>
+                    <p class="card-body">Universities responded to funding changes by cutting programs and discontinuing
+                        majors to manage costs and adapt to shifting demand.</p>
+                </div>
+                <div class="year small year-range">
+                    <span>2024</span>
+                    <span class="year-dash"></span>
+                    <span>2026</span>
+                </div>
+                <div class="empty-r"></div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- tuition fee chart -->
+    <section class="tuition-section">
+        <div class="tl-header">
+            <p class="sub">How Australian University Fees Were Repriced (1989–2023)</p>
+            <h1>the cost of choosing different paths</h1>
+        </div>
+        <div class="tuition-inner">
+            <div class="tuition-chart-wrap">
+                <div id="tuitionChart"></div>
+                <p class="quote-source">source. Australia Government Department of Education (2026)</p>
+            </div>
+            <div class="context-box">
+                <h2 class="context-box__title">What the three phases show</h2>
+                <p class="context-box__paragraph"><strong>Phase 1 (1989–1996):</strong> All disciplines cost the same.
+                    Education was treated as equally valuable across all fields.</p>
+                <p class="context-box__paragraph"><strong>Phase 2 (1997–2020):</strong> Fees separated into bands, with
+                    arts and education at the lowest and law at the highest. This structure held for 23 years.</p>
+                <p class="context-box__paragraph"><strong>Phase 3 (2021+):</strong> Arts fees jumped from the lowest to
+                    the highest band, a shift driven by the <span class="tooltip-wrap">Job Ready Graduates Scheme<span
+                            class="tooltip-box">The Job Ready Graduates scheme was introduced to encourage students to
+                            pursue degrees in fields with strong employment prospects.</span></span>, which increased
+                    arts fees by up
+                    to 113%.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- key takeaways of the tuition fee chart -->
+    <section class="paragraph-section">
+        <div class="paragraph">
+            <p>Even after paying significantly higher tuition, Arts graduates continue to face fewer job opportunities
+                than STEM graduates, highlighting a growing mismatch
+                between what students pay and the employment outcomes available to them.
+            </p>
+        </div>
+    </section>
+
+    <!-- job vacancies chart -->
+    <section class="job-section">
+        <div class="tl-header">
+            <p class="sub">The evidence that contradicts policy</p>
+            <h1>graduates vs. job vacancies</h1>
+        </div>
+        <div class="job-inner">
+            <div class="job-split-wrap">
+
+                <!-- LEFT: graduates -->
+                <div class="job-split-left">
+                    <div class="job-tab-spacer"></div>
+                    <div class="job-chart-wrap job-chart-wrap--grad">
+                        <p class="job-chart-title">Number of graduates per year, by discipline</p>
+                        <div id="gradChart"></div>
+                    </div>
+                    <p class="quote-source">source. Australian Department of Education (2015–2024)</p>
+                </div>
+
+                <!-- RIGHT: tabbed vacancy charts -->
+                <div class="job-split-right">
+                    <div class="job-tabs">
+                        <button class="job-tab job-tab--active" data-tab="vacancies">Job Vacancies</button>
+                        <button class="job-tab" data-tab="ratio">Vacancies per Graduate</button>
+                    </div>
+
+                    <div id="tab-vacancies" class="job-tab-panel">
+
+                        <div class="job-chart-wrap job-chart-wrap--compact">
+                            <p class="job-chart-title">Annual average quarterly vacancies ('000)</p>
+                            <div id="vacChart"></div>
+                        </div>
+                        <p class="quote-source">source. Australian Bureau of Statistics - Job Vacancies by Industry,
+                            Original series
+                            (2015–2024)</p>
+                    </div>
+
+                    <div id="tab-ratio" class="job-tab-panel" style="display:none">
+
+                        <div class="job-chart-wrap job-chart-wrap--compact">
+                            <p class="job-chart-title">Job vacancies per 100 people entering the field</p>
+                            <div id="ratioChart"></div>
+                        </div>
+                        <p class="quote-source">source. Australian Bureau of Statistics &amp; Australian Department of
+                            Education (2015–2024)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="context-box">
+                <h2 class="context-box__title">What this reveals</h2>
+                <p class="context-box__paragraph"><strong>The contradiction:</strong> Arts graduates outnumber STEM
+                    graduates nearly 2:1, yet STEM job vacancies peaked at 121,000 compared to just 7,000 in Arts.</p>
+                <p class="context-box__paragraph"><strong>The policy claim:</strong> Government used this gap to justify
+                    making arts the most expensive degree, at $16,992 versus $9,500 for STEM.</p>
+                <p class="context-box__paragraph"><strong>The reality:</strong> STEM had over 500 open roles per 100
+                    graduates at peak; arts never exceeded 20. The gap was real, but the policy response remains
+                    debated.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Creative arts enrolment decline by state -->
+    <section class="state-decline-section">
+        <div class="tl-header">
+            <p class="sub">we risk limiting who has access to arts learning…</p>
+            <h1>
+                "We risk becoming an artless country"
+            </h1>
+            <p class="sub">- Co-author Dr John Nicholas Saunders (Creative Arts,2017)</p>
+        </div>
+
+        <section class="paragraph-section">
+            <div class="paragraph">
+                <p>The decline in arts enrolments is not uniform but it is a national pattern, playing out differently
+                    across every state and territory.
+                    Since 2018, the consistent reduction of available creative arts courses has coincided with falling
+                    enrolments across universities and the
+                    TAFE sector alike (Gattenhof & Saunders, 2026), and the data below shows just how unevenly that
+                    weight has been distributed.
+                </p>
+            </div>
+        </section>
+
+        <div class="state-decline-card">
+            <p class="state-decline-chart-title">By state, decline in university creative arts enrolments</p>
+            <p class="state-decline-chart-hint">Each icon represents 5% of 2018 enrolments. Darker icons show the share
+                remaining in 2023; lighter icons show the share lost.</p>
+
+
+            <div class="state-decline-legend">
+                <span class="state-decline-legend-item">
+                    <span class="state-decline-swatch state-decline-swatch--remain"></span>
+                    Remaining enrolments
+                </span>
+                <span class="state-decline-legend-item">
+                    <span class="state-decline-swatch state-decline-swatch--lost"></span>
+                    Enrolment decline
+                </span>
+            </div>
+
+            <section class="state-decline-rows" id="stateDeclineRows"
+                aria-label="Creative arts enrolment decline by state"></section>
+
+            <p class="quote-source">source. Australian Government Department of Education - Selected Higher Education
+                Statistics – 2024 Student data, 2024; Gattenhof & Saunders, 2026 </p>
+        </div>
+
+        <section class="paragraph-section">
+            <div class="paragraph">
+                <p>What these numbers leave behind is a shrinking pipeline into Australia's cultural future. While the cultural and creative economy contributes more than $111 billion annually (A New Approach, 2020) and supports hundreds of thousands of jobs, fewer students are entering the disciplines that sustain it. As enrolments decline, the consequences extend beyond workforce shortages. Fewer writers, designers, educators, linguists, and cultural workers means fewer people creating the media, preserving the histories, and producing the cultural experiences that Australians engage with every day. 
+                    The result is a growing disconnect between society's reliance on culture and its investment in the people who make it possible.
+                </p>
+            </div>
+        </section>
+
+<!-- Final section -->
+        <div class="tl-header">
+            <p class="sub">So....</p>
+            <h1>
+                <italic>"What now?"</italic>
+            </h1>
+        </div>
+
+        <section class="paragraph-section">
+            <div class="paragraph">
+                <p>
+                    If you are still choosing the arts, you are not alone. You are navigating a system that was
+                    redesigned to make you doubt yourself. The debt is real. The cuts are real. The feeling that your
+                    choice demands a justification no one ever asks of an engineering student is real too. But so is the
+                    $111 billion industry built by people who kept going anyway. This website exists because that
+                    struggle deserves to be seen and named, not quietly filed away as a risk you knowingly accepted.
+                    The arts were never just an economic question. They are how a society knows itself, how it grieves,
+                    imagines, and remembers.
+                </p>
+                <br>
+                <p>
+                    If you need support, here is what is available to you:
+                </p>
+<!-- Support resources -->
+                <div class="support-resources" aria-label="Arts support resources">
+                    <article class="support-resource">
+                        <a class="support-resource__link" href="https://creative.gov.au/" target="_blank"
+                            rel="noopener noreferrer" aria-label="Visit Creative Australia">
+                            <img class="support-resource__image" src="creaAus.png" alt="Creative Australia logo">
+                        </a>
+                        <h2 class="support-resource__title">Creative Australia</h2>
+                        <p class="support-resource__description">national grants and funding opportunities</p>
+                    </article>
+
+                    <article class="support-resource">
+                        <a class="support-resource__link" href="https://www.artshub.com.au/" target="_blank"
+                            rel="noopener noreferrer" aria-label="Visit Arts Hub">
+                            <img class="support-resource__image" src="artsHub.png" alt="Arts Hub logo">
+                        </a>
+                        <h2 class="support-resource__title">Arts Hub</h2>
+                        <p class="support-resource__description">jobs, industry news, and a community of working
+                            practitioners</p>
+                    </article>
+
+                    <article class="support-resource">
+                        <a class="support-resource__link" href="https://humanities.org.au/" target="_blank"
+                            rel="noopener noreferrer" aria-label="Visit Australian Academy of the Humanities">
+                            <img class="support-resource__image" src="ausAca.png"
+                                alt="Australian Academy of the Humanities logo">
+                        </a>
+                        <h2 class="support-resource__title">Australian Academy of the Humanities</h2>
+                        <p class="support-resource__description">providing policy advice, research funding, and advocacy
+                            for Arts disciplines</p>
+                    </article>
+                </div>
+            </div>
+            <div>
+                <p class="closing-statement">
+                    A country that prices out that capacity does not become more productive.
+                </p>
+                <p class="closing-final">
+                    It becomes less alive.
+                </p>
+            </div>
+        </section>
+
+    </section>
+
+    <footer class="site-footer">
+        <div class="site-footer__inner">
+            <p class="site-footer__kicker">The illusion of choice</p>
+            <p class="site-footer__statement">Creativity is not disappearing; access to creative study is being priced,
+                narrowed, and cut.</p>
+            <div class="site-footer__meta">
+                <span>DECO3100 Final</span>
+                <a class="site-footer__link" href="#">Back to top</a>
+                <span>Data story on arts education pathways</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
